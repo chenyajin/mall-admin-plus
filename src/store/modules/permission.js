@@ -24,7 +24,7 @@ const permission = {
       // 顶部导航菜单默认添加统计报表栏指向首页
       const index = [{
         path: 'index',
-        meta: { title: '统计报表', icon: 'dashboard'}
+        meta: { title: '统计报表', icon: 'dashboard' }
       }]
       state.topbarRouters = routes.concat(index);
     },
@@ -34,7 +34,7 @@ const permission = {
   },
   actions: {
     // 生成路由
-    GenerateRoutes({ commit }) {
+    GenerateRoutes ({ commit }) {
       return new Promise(resolve => {
         // 向后端请求路由数据
         getRouters().then(res => {
@@ -55,7 +55,7 @@ const permission = {
 }
 
 // 遍历后台传来的路由字符串，转换为组件对象
-function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
+function filterAsyncRouter (asyncRouterMap, lastRouter = false, type = false) {
   return asyncRouterMap.filter(route => {
     if (type && route.children) {
       route.children = filterChildren(route.children)
@@ -82,7 +82,7 @@ function filterAsyncRouter(asyncRouterMap, lastRouter = false, type = false) {
   })
 }
 
-function filterChildren(childrenMap, lastRouter = false) {
+function filterChildren (childrenMap, lastRouter = false) {
   var children = []
   childrenMap.forEach((el, index) => {
     if (el.children && el.children.length) {
